@@ -4,10 +4,10 @@ public class Main  {
         Scanner in = new Scanner(System.in);
        //ask about minimal and maximal length
         System.out.print("Minimal password length: ");
-        int minLength = scanner.nextInt();
+        int minLength = in.nextInt();
 
         System.out.print("Maximal length: ");
-        int maxLength = scanner.nextInt();
+        int maxLength = in.nextInt();
         //ask about lowercase letters and uppercase letters
         System.out.print("use lowercase letters: yes or not? ");
 
