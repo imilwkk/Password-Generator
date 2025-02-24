@@ -5,4 +5,5 @@ Based on the user's choices, it combines the relevant character sets
 Random characters are selected from the available pool to create the password
 
 The password strength is displayed as "Weak," "Moderate," or "Strong" based on its length.
-
+Trying to run :
+![image](https://github.com/user-attachments/assets/e0883f49-51f2-433e-9a42-747b9615b282)
