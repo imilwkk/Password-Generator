@@ -1,0 +1,50 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for password length
+        System.out.print("Enter desired password length: ");
+        int length = scanner.nextInt();
+
+        // Prompt user for character preferences
+        System.out.print("Include lowercase letters? (yes/no): ");
+        boolean useLower = scanner.next().equalsIgnoreCase("yes");
+        System.out.print("Include uppercase letters? (yes/no): ");
+        boolean useUpper = scanner.next().equalsIgnoreCase("yes");
+        System.out.print("Include numbers? (yes/no): ");
+        boolean useNumbers = scanner.next().equalsIgnoreCase("yes");
+        System.out.print("Include special symbols? (yes/no): ");
+        boolean useSymbols = scanner.next().equalsIgnoreCase("yes");
+
+        // Character pools
+        String lowercase = "abcdefghijklmnopqrstuvwxyz";
+        String uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String digits = "0123456789";
+        String specialChars = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/";
+
+        // Build character set
+        StringBuilder availableChars = new StringBuilder();
+        if (useLower) availableChars.append(lowercase);
+        if (useUpper) availableChars.append(uppercase);
+        if (useNumbers) availableChars.append(digits);
+        if (useSymbols) availableChars.append(specialChars);
+
+        if (availableChars.length() == 0) {
+            System.out.println("Error: No character type selected. Exiting.");
+            return;
+        }
+
+        // Generate password
+        Random random = new Random();
+        StringBuilder password = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            password.append(availableChars.charAt(random.nextInt(availableChars.length())));
+        }
+
+        // Output the generated password and its strength
+        System.out.println("Generated Password: " + password);
+        System.out.println("Password Strength: " + (length >= 12 ? "Strong" : length >= 8 ? "Moderate" : "Weak"));
+    }
+}
